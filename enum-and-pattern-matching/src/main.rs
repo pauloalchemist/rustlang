@@ -1,11 +1,17 @@
 fn main() {
-    enum IpAddrkind {
-        V4(String),
-        V6(String)
+    enum Message {
+        Quit,
+        Move {x: i32, y: i32},
+        Write(String),
+        ChangeColor(i32, i32, i32)
     }
 
+    impl Message {
+        fn call(&self) {
+            // um método para o corpo dessa função pode ser definido aqui.
+        }
+    }
 
-    let home = IpAddrkind::V4(String::from("127.0.0.1"));
-
-    let loopback = IpAddrkind::V6(String::from("::1"));
+    let m = Message::Write(String::from("oi"));
+    m.call()
 }
