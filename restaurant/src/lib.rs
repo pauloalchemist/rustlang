@@ -12,3 +12,14 @@ pub fn eat_at_restaurant() {
 	front_of_house::hostings::add_to_waitlist();
 
 }
+
+fn server_order() {}
+
+mod back_of_house {
+	fn fix_incorrect_order() {
+		cook_order();
+		super::server_order();
+	}
+
+	fn cook_order() {}
+}
