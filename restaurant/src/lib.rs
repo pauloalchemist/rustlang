@@ -1,25 +1,25 @@
-mod front_of_house {
-	pub mod hostings {
-  	pub fn add_to_waitlist() {}
+#![allow(unused)]
 
-  }
-}
+fn main() {
+	mod back_of_house {
+		pub struct Breakfast {
+			pub toast: String,
+			seasonal_fruit: String
+		}
 
-pub fn eat_at_restaurant() {
-	// absolute path
-	crate::front_of_house::hostings::add_to_waitlist();
-	// relative path
-	front_of_house::hostings::add_to_waitlist();
-
-}
-
-fn server_order() {}
-
-mod back_of_house {
-	fn fix_incorrect_order() {
-		cook_order();
-		super::server_order();
+		impl Breakfast {
+			pub fn summer(toast: &str) -> Breakfast {
+				Breakfast {
+					toast: String::from(toast),
+					seasonal_fruit: String::from("peaches")
+				}
+			}
+		}
 	}
 
-	fn cook_order() {}
+	pub fn eat_at_restaurant() {
+		let mut meal = back_of_house::Breakfast::summer("Rye");
+		meal.toast = String::from("Wheat");
+		println!("I'd like {} toast please", meal.toast);
+	}
 }
