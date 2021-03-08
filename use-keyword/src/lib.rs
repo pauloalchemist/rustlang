@@ -1,15 +1,22 @@
-#![allow(unused)]
+use rand::{thread_rng, Rng};
+use std::io;
+
 fn main() {
-    use std::fmt::Result;
-    use std::io::Result as IoResult;
+    let mut rng = thread_rng();
 
-    fn function1() -> Result {
-        // --snip--
-        Ok(())
-    }
+    println!("Guess the number!");
 
-    fn function2() -> IoResult<()> {
-        // --snip--
-        Ok(())
-    }
+    let secret_number = rng.gen_range(1..101);
+
+    println!("The secret number is: {}", secret_number);
+
+    println!("Please input your guess.");
+
+    let mut guess = String::new();
+
+    io::stdin()
+        .read_line(&mut guess)
+        .expect("Failed to read line");
+
+    println!("You guessed: {}", guess);
 }
