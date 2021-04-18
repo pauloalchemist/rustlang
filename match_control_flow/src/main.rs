@@ -1,5 +1,6 @@
 #[derive(Debug)]
 
+
 enum UsState {
     Alabama,
     Alaska
